@@ -3,22 +3,22 @@ agent any
     stages {
         stage ('Compile') {
               steps {
-                bat label: '', script: 'mvn compile'
+                sh 'mvn compile'
                 echo "compile successful";
 
             }
         }
         stage ('Build') {
               steps {
-                bat label: '', script: 'mvn clean'
-                bat label: '', script: 'mvn package'
+                sh 'mvn clean'
+                sh 'mvn package'
                 echo "build successful";
 
             }
         }
         stage ('Test') {
               steps {
-                bat label: '', script: 'mvn test'
+                sh 'mvn test'
                 echo "test successful";
             }
         }
