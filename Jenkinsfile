@@ -5,8 +5,6 @@ agent any
             steps {
                 echo 'Running build phase. '
                 sh 'mvn compile'
-                sh 'mvn install'
-                sh 'mvn clean install'
                 sh 'mvn clean package'
             }
         }
@@ -29,7 +27,7 @@ agent any
         stage ('Monitor') {
             steps {
                 echo 'Running Monitor phase. '
-                sh 'mvn exec:java -Dexec.mainClass=com.dakual.helloworld.Main'
+                //sh 'mvn exec:java -Dexec.mainClass=com.dakual.helloworld.Main'
             }
         }
 
