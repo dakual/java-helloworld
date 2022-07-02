@@ -4,11 +4,16 @@ agent any
         stage ('Build') {
             steps {
                 echo 'Running build phase. '
+                mvn compile
+                mvn install
+                mvn clean install
+                mvn clean package
             }
         }
         stage ('Test') {
             steps {
                 echo 'Running Test phase. '
+                mvn test
             }
         }
         stage ('QA') {
@@ -24,6 +29,7 @@ agent any
         stage ('Monitor') {
             steps {
                 echo 'Running Monitor phase. '
+                mvn exec:java -Dexec.mainClass=com.dakual.helloworld.Main
             }
         }
 
